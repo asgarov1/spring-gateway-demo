@@ -1,18 +1,18 @@
 server:
   port: 8080
 
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: booking-route
-#          uri: ${domains.booking-service}
-#          predicates:
-#            - Path=/bookings/**
-#        - id: order-route
-#          uri: ${domains.order-service}
-#          predicates:
-#            - Path=/orders/**
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: booking-route
+          uri: ${domains.booking-service}
+          predicates:
+            - Path=/bookings/**
+        - id: order-route
+          uri: ${domains.order-service}
+          predicates:
+            - Path=/orders/**
 
 domains:
   booking-service: http://localhost:8081
