@@ -1,18 +1,23 @@
 server:
   port: 8080
 
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: booking-route
-#          uri: ${domains.booking-service}
-#          predicates:
-#            - Path=/bookings/**
-#        - id: order-route
-#          uri: ${domains.order-service}
-#          predicates:
-#            - Path=/orders/**
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: booking-route
+          uri: ${domains.booking-service}
+          predicates:
+            - Path=/bookings/**
+        - id: order-route
+          uri: ${domains.order-service}
+          predicates:
+            - Path=/orders/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://www.googleapis.com/service_accounts/v1/jwk/securetoken%40system.gserviceaccount.com
 
 domains:
   booking-service: http://localhost:8081
